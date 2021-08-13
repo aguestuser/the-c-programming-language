@@ -15,7 +15,7 @@ int main(){
     for (i = 0; i < 26; ++i)
         nlower[i] = 0;
 
-    while((c = getchar()) != EOF) 
+    while((c = getchar()) != EOF)
         if (is_lower(c))
             ++nlower[c-'a'];
 
@@ -23,10 +23,9 @@ int main(){
     for (i = 0; i < 26; ++i){
         printf("%c: ", 'a' + i);
         for (j = 0; j < nlower[i]; ++j){
-            printf("+");    
+            printf("+");
         }
         printf("\n");
     }
     printf("\n");
 }
-

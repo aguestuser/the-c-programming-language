@@ -3,18 +3,14 @@
 
 /* count digits, white space, others */
 
-bool is_whitespace(char c){
-    return c == ' ' || c == '\n' || c == '\t';
-};
+bool is_whitespace(char c);
 
-bool is_digit(char c){
-    return c >= '0' && c <= '9';
-};
+bool is_digit(char c);
 
 int main(){
     int c, i, nwhite, nother;
     int ndigit[10];
-    
+
     nwhite = nother = 0;
 
     for (i = 0; i < 10; ++i)
@@ -34,3 +30,6 @@ int main(){
     printf(", white space = %d, other = %d\n", nwhite, nother);
 }
 
+bool is_whitespace(char c) { return c == ' ' || c == '\n' || c == '\t'; };
+
+bool is_digit(char c) { return c >= '0' && c <= '9'; };
