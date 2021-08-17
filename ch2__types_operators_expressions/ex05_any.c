@@ -20,30 +20,28 @@ int main() {
     test("abc", "cd", 2);
     test("aabc", "bcd", 2);
     test("abbc", "bcd", 1);
-
+    test("babc", "abcd", 0);
 }
 
 // increment notation allows us to write this:
 int any(const char *s1, const char *s2) {
-    int i=-1, j=-1;
-    while(s2[++i] != '\0')
-        while(s1[++j] != '\0')
-            if(s1[j] == s2[i]) return j;
-    return -1;
+    int r=-1;
+    for(int i=-1; s2[++i] != '\0';)
+        for(int j=-1; s1[++j] != '\0';)
+            if(s1[j] == s2[i] && (j < r || r == -1))
+                r = j;
+    return r;
 }
 
 // instead of writing this:
 //
 //int any(const char *s1, const char *s2) {
-//    int i, j;
-//    for(i = 0; s2[i] != '\0'; i++) {
-//        for(j = 0; s1[j] != '\0'; j++){
-//            if(s1[j] == s2[i]){
-//                return j;
-//            }
-//        }
-//    }
-//    return -1;
+//    int r=-1
+//    for(i = 0; s2[i] != '\0'; i++)
+//        for(j = 0; s1[j] != '\0'; j++)
+//            if(s1[j] == s2[i] && (j < r || r == -1))
+//                r = j;
+//    return r;
 //}
 
 void test(char *s1, char *s2, int expected) {
