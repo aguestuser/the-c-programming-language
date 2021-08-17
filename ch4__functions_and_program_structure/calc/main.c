@@ -18,7 +18,7 @@ int main (){
                 push(atof(s));
                 break;
             case '+':
-                push(pop () + pop()) ;
+                push(pop() + pop()) ;
                 break;
             case '*':
                 push(pop() * pop());
